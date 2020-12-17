@@ -1,4 +1,3 @@
-import DateTime from "../DateTime";
-console.log(local);
+var DateTime = luxon.DateTime;
 
-$("#currentDay").text(DateTime.local().toLocaleString(DateTime.DATE_FULL));
+$("#currentDay").text(DateTime.local(DATE_FULL()));
