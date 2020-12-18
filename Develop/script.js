@@ -1,17 +1,33 @@
-// const moment = require("./moment");
-var currentDate = moment().format(`MMMM/DD/YYYY`);
-var dateTime = $("#currentDay");
+// variables
+var currentHour = parseInt(moment().format(`HH`));
 
-$("#currentDay").text(currentDate);
+// current date funtion
+$("#currentDay").text(moment().format(`MMMM/DD/YYYY`));
 var textArea = $(".text-input");
-var texPull = JSON.parse(localStorage.getItem(textArea)) || [];
-// var savedText = [(nine: {})];
-// this area is where luxon would go if it actually worked like it says it does
 
-// this area is where luxon would go for choosing colors of text area on time if it functioned like it should
+// this allows the calendar to check local time and shades out past times
+$.each(textArea, function () {
+  var timeBlock = $(".time-block");
 
-$("button").click(function () {
-  console.log("clicked");
+  var dataTime = this.getAttribute("data-time");
 
-  localStorage.setItem("text-input", JSON.stringify(texPull));
+  if (currentHour === dataTime) {
+    textArea.removeClass("past", "future");
+    textArea.addClass(".present");
+  }
+  if (currentHour > dataTime) {
+    textArea.removeClass("present", "future");
+    textArea.addClass("past");
+  }
+  if (currentHour < dataTime) {
+    textArea.removeClass("present", "past");
+    textArea.addClass("future");
+  }
+});
+
+// save to local storage function
+$(".saveBtn").on("click", function () {
+  var description = $(this).siblings(".text-input").val();
+  var time = $(this).siblings(".hours").attr("time-block");
+  localStorage.setItem(time, description);
 });
