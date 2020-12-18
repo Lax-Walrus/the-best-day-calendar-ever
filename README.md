@@ -1,6 +1,6 @@
 # the-best-day-calendar-ever
 
-![snapShot](https://github.com/Lax-Walrus/the-big-quiztime-project-hw/blob/main/photos/screenShot%20of%20deployment.png?raw=true)
+![snapShot](https://github.com/Lax-Walrus/the-best-day-calendar-ever/blob/main/Assets/screencapture-file-C-Users-zinck-code-the-best-day-calendar-ever-Develop-index-html-2020-12-17-22_38_17.png?raw=true)
 
 ## Product:
 
